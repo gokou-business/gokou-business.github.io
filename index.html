@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#233547">
+  <meta name="robots" content="noindex">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>五光 社内ツール</title>
+  <style>
+    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; color: #28323a; background: #f5f3ee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
+    header { background: #233547; color: #fff; padding: 42px 24px 36px; padding-top: max(42px, env(safe-area-inset-top)); border-bottom: 4px solid #b5aa91; }
+    .inner { width: 100%; max-width: 640px; margin: 0 auto; }
+    .brand { margin: 0 0 12px; font-size: 12px; letter-spacing: .1em; color: #d7dce0; line-height: 1.8; }
+    h1 { margin: 0; font-size: clamp(24px, 6vw, 30px); font-weight: 600; letter-spacing: .06em; }
+    .intro { margin: 14px 0 0; color: #d7dce0; font-size: 14px; line-height: 1.8; }
+    main { flex: 1; width: 100%; padding: 32px 20px 40px; }
+    section + section { margin-top: 32px; }
+    h2 { margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: .12em; padding-left: 11px; border-left: 3px solid #9c9076; }
+    .card { display: flex; align-items: center; gap: 16px; min-height: 120px; padding: 24px 20px; border: 1px solid #dedbd3; border-radius: 14px; background: #fff; }
+    a.card { color: inherit; text-decoration: none; box-shadow: 0 3px 12px #23354708; -webkit-tap-highlight-color: #23354718; }
+    a.card:focus-visible { outline: 3px solid #536c83; outline-offset: 4px; }
+    a.card:active { background: #eeede8; }
+    @media (hover: hover) { a.card:hover { border-color: #8694a0; background: #fafaf8; } }
+    .card-text { flex: 1; min-width: 0; }
+    .card-title { display: block; font-size: 20px; font-weight: 600; line-height: 1.6; color: #233547; }
+    .card-description { display: block; margin-top: 7px; font-size: 14px; line-height: 1.8; color: #60686e; }
+    .arrow { flex: 0 0 auto; width: 10px; height: 10px; border-top: 2px solid #7d8993; border-right: 2px solid #7d8993; transform: rotate(45deg); margin-right: 4px; }
+    .disabled { min-height: 96px; background: #eeede8; border-color: #e3e0d8; }
+    .disabled .card-title { color: #8a8c8c; font-size: 18px; font-weight: 500; }
+    footer { padding: 0 20px max(26px, env(safe-area-inset-bottom)); color: #656c70; }
+    .install { border-top: 1px solid #dedbd3; padding-top: 20px; font-size: 12px; line-height: 1.9; }
+    .install p { margin: 0; }
+    .install p + p { margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <p class="brand">五光ファミリーホール・五光本社</p>
+      <h1>五光 社内ツール</h1>
+      <p class="intro">利用するツールを選んでください。</p>
+    </div>
+  </header>
+  <main>
+    <div class="inner">
+      <section aria-labelledby="sougi-heading">
+        <h2 id="sougi-heading">葬儀支援</h2>
+        <a class="card" href="sougi/shinkou.html">
+          <span class="card-text">
+            <span class="card-title">通夜葬儀進行表</span>
+            <span class="card-description">進行表を作成し、画像で共有</span>
+          </span>
+          <span class="arrow" aria-hidden="true"></span>
+        </a>
+      </section>
+      <section aria-labelledby="accounting-heading">
+        <h2 id="accounting-heading">経理</h2>
+        <div class="card disabled" aria-disabled="true">
+          <span class="card-title">準備中</span>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <div class="inner install">
+      <p>ホーム画面に追加すると、アプリのように使えます</p>
+      <p>iPhone：共有ボタン → ホーム画面に追加<br>Android：メニュー → ホーム画面に追加</p>
+    </div>
+  </footer>
+</body>
+</html>
