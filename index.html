@@ -22,6 +22,7 @@
     section + section { margin-top: 32px; }
     h2 { margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: .12em; padding-left: 11px; border-left: 3px solid #9c9076; }
     .card { display: flex; align-items: center; gap: 16px; min-height: 120px; padding: 24px 20px; border: 1px solid #dedbd3; border-radius: 14px; background: #fff; }
+    .card + .card { margin-top: 14px; }
     a.card { color: inherit; text-decoration: none; box-shadow: 0 3px 12px #23354708; -webkit-tap-highlight-color: #23354718; }
     a.card:focus-visible { outline: 3px solid #536c83; outline-offset: 4px; }
     a.card:active { background: #eeede8; }
@@ -62,23 +63,59 @@
         -->
         <a class="card" href="sougi/shinkou.html">
           <span class="card-text">
-            <span class="card-title">通夜葬儀進行表</span>
-            <span class="card-description">進行表を作成し、画像で共有</span>
+            <span class="card-title">通夜・葬儀 シフト表</span>
+            <span class="card-description">通夜・葬儀の担当を決めて画像で共有</span>
+          </span>
+          <span class="arrow" aria-hidden="true"></span>
+        </a>
+        <a class="card" href="sougi/yakan.html">
+          <span class="card-text">
+            <span class="card-title">夜間当番カード</span>
+            <span class="card-description">夜間当番と会館の空き状況を画像で共有</span>
+          </span>
+          <span class="arrow" aria-hidden="true"></span>
+        </a>
+        <a class="card" href="sougi/sanbin.html">
+          <span class="card-text">
+            <span class="card-title">三便準備物リスト</span>
+            <span class="card-description">自宅納品の準備物をチェック</span>
           </span>
           <span class="arrow" aria-hidden="true"></span>
         </a>
       </section>
+      <section aria-labelledby="after-support-heading">
+        <h2 id="after-support-heading">アフターサポート</h2>
+        <a class="card" href="after/boseki.html">
+          <span class="card-text">
+            <span class="card-title">墓石副碑 戒名彫り依頼票</span>
+            <span class="card-description">副碑への戒名の彫りたしを依頼</span>
+          </span>
+          <span class="arrow" aria-hidden="true"></span>
+        </a>
+      </section>
+
       <section aria-labelledby="accounting-heading">
         <h2 id="accounting-heading">経理</h2>
         <div class="card disabled" aria-disabled="true">
           <span class="card-title">準備中</span>
         </div>
       </section>
+      <section aria-labelledby="other-heading">
+        <h2 id="other-heading">その他</h2>
+        <a class="card" href="sonota/kaizen.html">
+          <span class="card-text">
+            <span class="card-title">業務改善提案シート</span>
+            <span class="card-description">業務の改善案を提案・共有</span>
+          </span>
+          <span class="arrow" aria-hidden="true"></span>
+        </a>
+      </section>
     </div>
   </main>
   <footer>
     <div class="inner install">
       <p>ホーム画面に追加すると、アプリのように使えます</p>
+      <p>このツールは 世登創太郎 が管理しています。ご不明な点は世登までご相談ください。</p>
       <p>iPhone：共有ボタン → ホーム画面に追加<br>Android：メニュー → ホーム画面に追加</p>
     </div>
   </footer>
