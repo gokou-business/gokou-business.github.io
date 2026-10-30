@@ -3,54 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#233547">
+  <meta name="theme-color" content="#0b1324">
   <meta name="robots" content="noindex">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
   <link rel="manifest" href="manifest.webmanifest">
   <title>五光 社内ツール</title>
   <style>
-    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; color: #28323a; background: #f5f3ee; }
+    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif; color: #eef4fb; background: #070d1a; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-    header { background: #233547; color: #fff; padding: 42px 24px 36px; padding-top: max(42px, env(safe-area-inset-top)); border-bottom: 4px solid #b5aa91; }
-    .inner { width: 100%; max-width: 640px; margin: 0 auto; }
-    .brand { margin: 0 0 12px; font-size: 12px; letter-spacing: .1em; color: #d7dce0; line-height: 1.8; }
-    h1 { margin: 0; font-size: clamp(24px, 6vw, 30px); font-weight: 600; letter-spacing: .06em; }
-    .intro { margin: 14px 0 0; color: #d7dce0; font-size: 14px; line-height: 1.8; }
-    main { flex: 1; width: 100%; padding: 32px 20px 40px; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; background: linear-gradient(145deg, #070d1a, #0f1d33); isolation: isolate; overflow-wrap: anywhere; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(115deg, transparent 12%, rgba(110,180,242,.13) 18%, transparent 25%, transparent 43%, rgba(110,180,242,.09) 48%, transparent 55%, transparent 73%, rgba(110,180,242,.07) 78%, transparent 85%); transform: rotate(-8deg) scale(1.2); filter: blur(24px); opacity: .65; clip-path: inset(0); }
+    header { padding: 44px 24px 28px; padding-top: max(44px, env(safe-area-inset-top)); border-bottom: 1px solid rgba(181,170,145,.3); }
+    .inner { width: 100%; max-width: 800px; margin: 0 auto; }
+    .brand { margin: 0 0 12px; font-size: 12px; letter-spacing: .1em; color: #b9c9dc; line-height: 1.8; }
+    h1 { margin: 0; font-size: clamp(24px, 6vw, 32px); font-weight: 600; letter-spacing: .06em; }
+    .intro { margin: 14px 0 0; color: #b9c9dc; font-size: 14px; line-height: 1.8; }
+    main { flex: 1; width: 100%; padding: 32px 24px 40px; }
     section + section { margin-top: 32px; }
-    h2 { margin: 0 0 12px; font-size: 15px; font-weight: 600; letter-spacing: .12em; padding-left: 11px; border-left: 3px solid #9c9076; }
-    .card { display: flex; align-items: center; gap: 16px; min-height: 120px; padding: 24px 20px; border: 1px solid #dedbd3; border-radius: 14px; background: #fff; }
+    h2 { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 0 0 14px; padding-left: 14px; font-size: 16px; font-weight: 600; letter-spacing: .1em; line-height: 1.6; }
+    h2::before { content: ""; position: absolute; left: 0; top: 4px; bottom: 4px; width: 2px; background: #82d4ff; box-shadow: 0 0 10px #4fc3ff77; }
+    .section-label { color: #9dcce7; font-size: 10px; font-weight: 500; letter-spacing: .18em; }
+    .card { position: relative; display: flex; align-items: center; gap: 18px; min-height: 120px; padding: 22px 20px; border: 1px solid rgba(140,180,230,.18); border-radius: 12px; background: rgba(255,255,255,.04); box-shadow: inset 0 1px rgba(255,255,255,.025); }
     .card + .card { margin-top: 14px; }
-    a.card { color: inherit; text-decoration: none; box-shadow: 0 3px 12px #23354708; -webkit-tap-highlight-color: #23354718; }
-    a.card:focus-visible { outline: 3px solid #536c83; outline-offset: 4px; }
-    a.card:active { background: #eeede8; }
-    @media (hover: hover) { a.card:hover { border-color: #8694a0; background: #fafaf8; } }
+    a.card { color: inherit; text-decoration: none; -webkit-tap-highlight-color: #4fc3ff22; transition: border-color .2s, box-shadow .2s, background .2s; }
+    a.card:focus-visible { outline: 3px solid #a1e1ff; outline-offset: 4px; border-color: #82d4ff; box-shadow: 0 0 22px #4fc3ff30; }
+    a.card:active { border-color: #82d4ff; background: rgba(79,195,255,.1); box-shadow: 0 0 20px #4fc3ff35; }
+    @media (hover: hover) { a.card:hover { border-color: #82d4ff; background: rgba(79,195,255,.07); box-shadow: 0 0 22px #4fc3ff22, inset 0 0 16px #4fc3ff08; } }
     .card-text { flex: 1; min-width: 0; }
-    .card-title { display: block; font-size: 20px; font-weight: 600; line-height: 1.6; color: #233547; }
-    .card-description { display: block; margin-top: 7px; font-size: 14px; line-height: 1.8; color: #60686e; }
-    .arrow { flex: 0 0 auto; width: 10px; height: 10px; border-top: 2px solid #7d8993; border-right: 2px solid #7d8993; transform: rotate(45deg); margin-right: 4px; }
-    .disabled { min-height: 96px; background: #eeede8; border-color: #e3e0d8; }
-    .disabled .card-title { color: #8a8c8c; font-size: 18px; font-weight: 500; }
-    footer { padding: 0 20px max(26px, env(safe-area-inset-bottom)); color: #656c70; }
-    .install { border-top: 1px solid #dedbd3; padding-top: 20px; font-size: 12px; line-height: 1.9; }
+    .card-title { display: block; font-size: 20px; font-weight: 600; line-height: 1.6; color: #eef4fb; }
+    .card-description { display: block; margin-top: 7px; font-size: 14px; line-height: 1.8; color: #9fb3c8; }
+    .availability { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; font-size: 12px; color: #b6d9cb; line-height: 1.6; }
+    .availability::before, .disabled .card-description::before, .disabled > .card-title::before { content: ""; display: inline-block; flex: 0 0 5px; width: 5px; height: 5px; border-radius: 50%; background: #3ee08f; box-shadow: 0 0 7px #3ee08f88; }
+    .arrow { flex: 0 0 auto; width: 10px; height: 10px; border-top: 2px solid #82d4ff; border-right: 2px solid #82d4ff; transform: rotate(45deg); margin-right: 4px; }
+    .disabled { min-height: 110px; background: rgba(2,7,16,.38); border-color: rgba(140,180,230,.12); }
+    .disabled .card-title { color: #bdcadb; font-size: 18px; font-weight: 500; }
+    .disabled .card-description { color: #ffca7c; }
+    .disabled .card-description::before, .disabled > .card-title::before { margin-right: 8px; vertical-align: middle; background: #ffb547; box-shadow: 0 0 7px #ffb54788; }
+    .disabled > .card-title { color: #ffca7c; }
+    footer { padding: 0 24px max(26px, env(safe-area-inset-bottom)); color: #aebed0; }
+    .install { border-top: 1px solid rgba(140,180,230,.18); padding-top: 20px; font-size: 14px; line-height: 1.9; }
     .install p { margin: 0; }
     .install p + p { margin-top: 8px; }
+    @media (max-width: 560px) { header, main { padding-left: 20px; padding-right: 20px; } .card { gap: 12px; padding: 20px 16px; } .card-title { font-size: 18px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+    /* 小さめ・詰めた表示（スクロールを減らす） */
+    header { padding: 26px 24px 18px; padding-top: max(26px, env(safe-area-inset-top)); }
+    .brand { margin-bottom: 6px; }
+    h1 { font-size: clamp(22px, 5.6vw, 28px); }
+    .intro { margin-top: 6px; }
+    main { padding-top: 20px; padding-bottom: 28px; }
+    section + section { margin-top: 20px; }
+    h2 { margin-bottom: 8px; }
+    .card { min-height: 76px; padding: 14px 16px; gap: 12px; }
+    .card + .card { margin-top: 8px; }
+    .card-title { font-size: 17px; line-height: 1.5; }
+    .card-description { margin-top: 2px; line-height: 1.6; }
+    .availability { margin-bottom: 2px; }
+    .disabled { min-height: 52px; padding: 10px 16px; }
+    .disabled .card-text { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .disabled .card-title { font-size: 15px; }
+    .disabled .card-description { flex: 0 0 auto; margin-top: 0; font-size: 12px; }
+    .disabled > .card-title { font-size: 15px; }
+    .install { padding-top: 14px; font-size: 13px; line-height: 1.7; }
+    .install p + p { margin-top: 4px; }
+    /* 日付・ツール数を見出しの横に小さく */
+    .top-row, .title-row { display: flex; align-items: center; justify-content: space-between; gap: 6px 12px; flex-wrap: wrap; }
+    .top-row .brand { margin: 0; }
+    .title-row { margin-top: 6px; }
+    .clock { margin: 0; display: flex; align-items: baseline; gap: 8px; font-size: 12px; color: #b9c9dc; font-variant-numeric: tabular-nums; }
+    .clock time { font-size: 17px; font-weight: 600; color: #a1e1ff; letter-spacing: .04em; text-shadow: 0 0 10px #4fc3ff66; }
+    header { padding-bottom: 16px; }
+    /* 五光の金色・準備中まとめ・番号なし */
+    .card::before { content: none; }
+    h2::before { background: #c9b98f; box-shadow: 0 0 10px #c9b98f66; }
+    .section-label { color: #cbbd99; }
+    .arrow { border-color: #d6c69c; }
+    @media (hover: hover) { a.card:hover { border-color: #c9b98f; background: rgba(201,185,143,.06); box-shadow: 0 0 22px #c9b98f22; } }
+    a.card:active { border-color: #c9b98f; background: rgba(201,185,143,.1); box-shadow: 0 0 20px #c9b98f30; }
+    a.card:focus-visible { outline-color: #e2d4ad; border-color: #c9b98f; box-shadow: 0 0 22px #c9b98f30; }
+    header { border-bottom-color: rgba(201,185,143,.4); }
+    .pending h2 { color: #bdcadb; }
+    .pending-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 12px 14px; list-style: none; border: 1px solid rgba(140,180,230,.12); border-radius: 12px; background: rgba(2,7,16,.38); }
+    .pending-list li { padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,.05); color: #b9c6d6; font-size: 13px; line-height: 1.6; }
   </style>
 </head>
 <body>
   <header>
     <div class="inner">
-      <p class="brand">五光ファミリーホール・五光本社</p>
-      <h1>五光 社内ツール</h1>
+      <div class="top-row">
+        <p class="brand">五光ファミリーホール・五光本社</p>
+        <p class="clock"><span id="current-date">--/--</span><time id="current-time">--:--</time></p>
+      </div>
+      <div class="title-row">
+        <h1>五光 社内ツール</h1>
+      </div>
       <p class="intro">利用するツールを選んでください。</p>
     </div>
   </header>
   <main>
     <div class="inner">
       <section aria-labelledby="sougi-heading">
-        <h2 id="sougi-heading">葬儀支援</h2>
+        <h2 id="sougi-heading">葬儀支援<span class="section-label" lang="en">FUNERAL SUPPORT</span></h2>
         <!-- カードを1枚増やすときの雛形：下記をコピーして、このコメントの外に追加します。
              href は公開準備.sh の出力先と同じにし、名前と説明を書き換えてください。
         <a class="card" href="sougi/new-tool.html">
@@ -63,66 +117,35 @@
         -->
         <a class="card" href="sougi/yakan.html">
           <span class="card-text">
+            <span class="availability">利用できます</span>
             <span class="card-title">夜間当番カード</span>
             <span class="card-description">夜間当番と会館の空き状況を画像で共有</span>
           </span>
           <span class="arrow" aria-hidden="true"></span>
         </a>
-        <a class="card" href="sougi/shinkou.html">
-          <span class="card-text">
-            <span class="card-title">通夜・葬儀 シフト表</span>
-            <span class="card-description">通夜・葬儀の担当を決めて画像で共有</span>
-          </span>
-          <span class="arrow" aria-hidden="true"></span>
-        </a>
-        <a class="card" href="sougi/sanbin.html">
-          <span class="card-text">
-            <span class="card-title">三便準備物リスト</span>
-            <span class="card-description">自宅納品の準備物をチェック</span>
-          </span>
-          <span class="arrow" aria-hidden="true"></span>
-        </a>
-        <a class="card" href="sougi/suryo.html">
-          <span class="card-text">
-            <span class="card-title">ドリンク・お返し 数量報告</span>
-            <span class="card-description">返礼品・ドリンクの利用数を経理へ報告</span>
-          </span>
-          <span class="arrow" aria-hidden="true"></span>
-        </a>
-        <!-- 準備中。完成したら通常のカードに戻す -->
-        <div class="card disabled" aria-disabled="true">
-          <span class="card-text">
-            <span class="card-title">打合せシート（仏式）</span>
-            <span class="card-description">準備中</span>
-          </span>
-        </div>
       </section>
       <section aria-labelledby="after-support-heading">
-        <h2 id="after-support-heading">アフターサポート</h2>
+        <h2 id="after-support-heading">アフターサポート<span class="section-label" lang="en">AFTER SUPPORT</span></h2>
         <a class="card" href="after/boseki.html">
           <span class="card-text">
+            <span class="availability">利用できます</span>
             <span class="card-title">墓石副碑 戒名彫り依頼票</span>
             <span class="card-description">副碑への戒名の彫りたしを依頼</span>
           </span>
           <span class="arrow" aria-hidden="true"></span>
         </a>
       </section>
-
-      <section aria-labelledby="accounting-heading">
-        <h2 id="accounting-heading">経理</h2>
-        <div class="card disabled" aria-disabled="true">
-          <span class="card-title">準備中</span>
-        </div>
-      </section>
-      <section aria-labelledby="other-heading">
-        <h2 id="other-heading">その他</h2>
-        <a class="card" href="sonota/kaizen.html">
-          <span class="card-text">
-            <span class="card-title">業務改善提案シート</span>
-            <span class="card-description">業務の改善案を提案・共有</span>
-          </span>
-          <span class="arrow" aria-hidden="true"></span>
-        </a>
+      <!-- 準備中のツール。完成したらここから外し、上の区分に通常のカードを足す -->
+      <section class="pending" aria-labelledby="pending-heading">
+        <h2 id="pending-heading">準備中<span class="section-label" lang="en">COMING SOON</span></h2>
+        <ul class="pending-list">
+          <li>通夜・葬儀 シフト表</li>
+          <li>三便準備物リスト</li>
+          <li>ドリンク・お返し 数量報告</li>
+          <li>打合せシート（仏式）</li>
+          <li>業務改善提案シート</li>
+          <li>経理のツール</li>
+        </ul>
       </section>
     </div>
   </main>
@@ -133,5 +156,29 @@
       <p>iPhone：共有ボタン → ホーム画面に追加<br>Android：メニュー → ホーム画面に追加</p>
     </div>
   </footer>
+  <script>
+    (() => {
+      const timeElement = document.getElementById('current-time');
+      const dateElement = document.getElementById('current-date');
+      const timeFormat = new Intl.DateTimeFormat('ja-JP', {
+        timeZone: 'Asia/Tokyo', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      });
+      const dateFormat = new Intl.DateTimeFormat('ja-JP', {
+        timeZone: 'Asia/Tokyo', month: 'numeric', day: 'numeric', weekday: 'short'
+      });
+      function updateClock() {
+        const now = new Date();
+        timeElement.textContent = timeFormat.format(now);
+        timeElement.dateTime = now.toISOString();
+        timeElement.title = '日本時間（Asia/Tokyo）';
+        dateElement.textContent = dateFormat.format(now);
+      }
+      updateClock();
+      setInterval(updateClock, 30000);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updateClock();
+      });
+    })();
+  </script>
 </body>
 </html>
